@@ -1,0 +1,19 @@
+////////////////////////////////////////////////////////////////////////////////
+//                                                                            //
+// Typography                                                                 //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+// font families
+$sansFontFamily:                    Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serifFontFamily:                   Georgia, "Times New Roman", Times, serif;
+$monoFontFamily:                    Monaco, Menlo, Consolas, "Courier New", monospace;
+
+// standard properties
+$baseFontColor:                     $grayDark;
+$baseFontSize:                      16px;
+$baseLineHeight:                    1.5em;
+$lightFontWeight:                   100;
+$baseFontWeight:                    300;
+$boldFontWeight:                    700;
+$baseLetterSpacing:                 1px;
