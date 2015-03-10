@@ -15,7 +15,9 @@ elixir(function(mix) {
 
     // styles
     mix.sass([
-      'screen.scss'
+      'screen.scss',
+      'print.scss',
+      'styleie.scss'
     ],'public/assets/styles');
 
     // engines
