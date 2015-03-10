@@ -12,7 +12,18 @@ class CreateSoftwaresTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('softwares', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('name');                                 // name of the software
+			$table->string('make');                                 // manufacturer of the software
+			$table->string('model');                                // specific name of the software
+			$table->longText('notes')->nullable();                  // description, general notes, etc.
+			$table->integer('created_by');
+			$table->integer('updated_by');
+			$table->timestamps();
+			$table->dateTime('ping');
+    });
 	}
 
 	/**
@@ -22,7 +33,7 @@ class CreateSoftwaresTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('softwares');
 	}
 
 }

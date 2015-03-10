@@ -12,6 +12,14 @@ class CreateApprovalsTable extends Migration {
 	 */
 	public function up()
 	{
+		Schema::create('users', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->integer('created_by');
+			$table->integer('updated_by');
+			$table->timestamps();
+			$table->dateTime('ping');
+    });
 		//
 	}
 
@@ -22,7 +30,7 @@ class CreateApprovalsTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('approvals');
 	}
 
 }

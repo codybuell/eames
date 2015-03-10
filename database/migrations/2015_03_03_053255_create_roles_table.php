@@ -12,7 +12,16 @@ class CreateRolesTable extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::create('roles', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('name');                                 // role name, adjustable for deployment but translates to classes below
+			$table->integer('class');                               // break points 000 => read only, 200 => user, 400 => manager, 600 => administrator
+			$table->integer('created_by');
+			$table->integer('updated_by');
+			$table->timestamps();
+			$table->dateTime('ping');
+    });
 	}
 
 	/**
@@ -22,7 +31,7 @@ class CreateRolesTable extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('roles');
 	}
 
 }
