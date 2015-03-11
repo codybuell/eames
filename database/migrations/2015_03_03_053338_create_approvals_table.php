@@ -12,7 +12,7 @@ class CreateApprovalsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users', function(Blueprint $table)
+		Schema::create('approvals', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('created_by');
