@@ -17,15 +17,24 @@ Route::get('home', 'HomeController@index');
 | Authenticated Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
+| Routes that require users to be logged in to access.
+|
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes
+|--------------------------------------------------------------------------
+|
+| Routes for handling login, logout and password resets.  Order here is
+| critical, these need to be at the end of this routes file and
+| Auth\AuthController must be the last route listed.
 |
 */
 
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 Route::controllers([
-	'/' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
+	'/' => 'Auth\AuthController',
 ]);
