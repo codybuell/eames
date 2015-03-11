@@ -35,6 +35,6 @@ Route::get('home', 'HomeController@index');
 Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 Route::controllers([
-	'password' => 'Auth\PasswordController',
-	'/' => 'Auth\AuthController',
+  'password' => 'Auth\PasswordController',
+  '/'        => 'Auth\AuthController',
 ]);
