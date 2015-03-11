@@ -2,7 +2,19 @@
 
 /*
 |--------------------------------------------------------------------------
-| Application Routes
+| Unauthenticated Routes
+|--------------------------------------------------------------------------
+|
+| Routes that are available to all users without loggin in to the application.
+|
+*/
+
+Route::get('/', 'WelcomeController@index');
+Route::get('home', 'HomeController@index');
+
+/*
+|--------------------------------------------------------------------------
+| Authenticated Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
@@ -11,11 +23,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-
-Route::get('home', 'HomeController@index');
+Route::get('logout', ['as' => 'logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
+	'/' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
