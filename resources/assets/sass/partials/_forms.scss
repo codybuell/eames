@@ -1,0 +1,145 @@
+//////////////////////
+// PLACEHOLDER TEXT //
+//////////////////////
+
+::-webkit-input-placeholder {   /* WebKit browsers */
+    color: $formPlaceholder;
+}
+:-moz-placeholder {             /* Mozilla Firefox 4 to 18 */
+    color: $formPlaceholder;
+}
+::-moz-placeholder {            /* Mozilla Firefox 19+ */
+    color: $formPlaceholder;
+}
+:-ms-input-placeholder {        /* Internet Explorer 10+ */
+    color: $formPlaceholder;
+}
+
+///////////////////////////
+// GENERAL FORM ELEMENTS //
+///////////////////////////
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+label {
+    color: $formLabel;
+}
+
+input {
+    @include border-box();
+    width: 300px;
+    height: 50px;
+    margin: 0px 0 25px 0;
+    padding: 0 15px;
+    border: 1px solid $inputBorder;
+    letter-spacing: 1px;
+    color: $formInput;
+}
+
+select {
+    @include border-box();
+    width: 300px;
+    height: 50px;
+    margin: 0px 0 25px 0;
+    padding: 0 15px;
+    border: 1px solid $inputBorder;
+    -webkit-appearance: none;
+    @include border-radius(0);
+    background: url('../graphics/dropdown.png') calc(100% - 15px) center no-repeat;
+    background-size: 16px 11px;
+    letter-spacing: 1px;
+    color: $formInput;
+}
+
+textarea {
+    @include border-box();
+    width: 300px;
+    height: 150px;
+    padding: 15px;
+    margin: 0px 0 25px 0;
+    border: 1px solid $inputBorder;
+    resize: none;
+    letter-spacing: 1px;
+    color: $formInput;
+}
+
+input[type=submit] {
+    margin: 0 0 0 0;
+    background: $grayDark;
+    border: 1px solid $grayDark;
+    color: $white;
+}
+
+////////////////////
+// HELPER CLASSES //
+////////////////////
+
+input[type=submit].text_button {
+    width: auto;
+    height: auto;
+    display: inline;
+    border: none;
+    padding: 0;
+    color: $baseFontColor;
+}
+
+button.text_button {
+    width: auto;
+    height: auto;
+    display: inline;
+    border: none;
+    padding: 0;
+    color: $baseFontColor;
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+.full_page_basic_form {
+    width: 100%;
+    height: 100%;
+    form {
+        height: 100%;
+    }
+    input {
+        width: 100%;
+    }
+    textarea {
+        width: 100%;
+        height: calc(100% - 150px);
+    }
+    h3 {
+        display: inline-block;
+        line-height: 1.1em;
+    }
+}
+
+.search {
+    height: 30px;
+    display: inline;
+    position: relative;
+    top: -6px;
+}
+
+.quickcreate {
+    height: 30px;
+    margin: 0 10px;
+    display: inline;
+    position: relative;
+    top: -6px;
+}
+
+/////////////////////
+// CUSTOM ELEMENTS //
+/////////////////////
+
+#account_notes {
+    height: 434px;
+}
+
+#create_user_notes {
+    height: 530px;
+}

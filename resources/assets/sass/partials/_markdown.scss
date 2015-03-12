@@ -1,0 +1,53 @@
+//////////////
+// MARKDOWN //
+//////////////
+
+.mark_title {
+    margin: 0 0 50px 0;
+    border-bottom: 1px solid $grayLight;
+    font-size: 3em;
+    line-height: 1.5em;
+    font-weight: 500;
+}
+
+.mark_content {
+    margin: 0 0 100px 0;
+    a, a:visited, a:active {
+        text-decoration: underline;
+        font-weight: 500;
+        color: $a_active;
+    }
+    a:hover {
+        text-decoration: underline;
+        font-weight: 500;
+        color: $a_hover;
+    }
+    hr {
+        margin: 40px 0;
+        border: 0;
+        border-bottom: 1px dashed $grayLight;
+    }
+    ul, ol {
+        margin: 0 0 20px 0;
+        padding: 0 0 0 0;
+        display: block;
+    }
+    ol li {
+        margin: 0 0 0 35px;
+        padding: 0 0 0 0;
+        display: list-item;
+        list-style: decimal;
+        list-style-position: outside;
+    }
+    ul li {
+        margin: 0 0 0 20px;
+        padding: 0 0 0 0;
+        display: list-item;
+        list-style: disc;
+        list-style-position: outside;
+    }
+    pre {
+        padding: 15px;
+        border: 1px solid $grayLight;
+    }
+}

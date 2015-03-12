@@ -1,16 +1,15 @@
-////////////////////////////////////////////////////////////////////////////////
-//                                                                            //
-// Colors                                                                     //
-//                                                                            //
-////////////////////////////////////////////////////////////////////////////////
+////////////
+// COLORS //
+////////////
 
 // gray palette
 $black:                             #000;
-$grayDarker:                        #333;
-$grayDark:                          #464646;
-$gray:                              #c4c4c4;
+$grayDarker:                        #2c2d2d;
+$grayDark:                          #333;
+$gray:                              #60605f;
 $grayLight:                         #999;
-$grayLighter:                       #ddd;
+$grayLighter:                       #dedcda;
+$grayLightest:                      #fafafa;
 $white:                             #fff;
 
 // accent palette
@@ -27,3 +26,26 @@ $pink:                              #c3325f;
 $purple:                            #7a43b6;
 $powderBlue:                        #d5eaf1;
 $cadetBlue:                         #5e8fc2;
+
+//////////////
+// DEFAULTS //
+//////////////
+
+// forms
+$inputBorder:                       $grayLighter;
+$formPlaceholder:                   $grayLight;
+$formInput:                         $grayDark;
+$formLabel:                         $grayLight;
+
+// links
+$a_active:                          $grayDark;
+$a_hover:                           $black;
+
+// selection
+$selection:                         $powderBlue;
+$p_selection:                       $powderBlue;
+
+// miscellaneous
+$bodyBackground:                    $white;
+$iconColor:                         $grayDark;
+$inactive:                          $red;

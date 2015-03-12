@@ -1,0 +1,18 @@
+html, body {
+    height: 100%;
+    background: $bodyBackground;
+    font-family: $sansFontFamily;
+    font-size: $baseFontSize;
+    letter-spacing: $baseLetterSpacing;
+    line-height: $baseLineHeight;
+    color: $baseFontColor;
+    -webkit-font-smoothing: antialiased;
+}
+
+*:focus {
+    outline: none;
+}
+
+* {
+    background: inherit;
+}

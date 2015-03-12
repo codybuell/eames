@@ -1,0 +1,27 @@
+////////////////
+// LOGIN PAGE //
+////////////////
+
+#login_wrapper {
+    width: 402px;
+    margin: auto auto;
+    background: transparent;
+    z-index: 100;
+    #login_form {
+        padding: 50px;
+        border: 1px solid $grayDark;
+        background: $white;
+    }
+    #login_meta {
+        padding: 10px 50px;
+        font-weight: 100;
+        font-size: 12px;
+        color: $grayLight;
+        a, a:visited, a:active {
+            color: $grayLight;
+        }
+        a:hover {
+            color: $grayDarker;;
+        }
+    }
+}

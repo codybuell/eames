@@ -1,0 +1,46 @@
+// General Config
+
+.axis path, .axis line {
+    fill: none;
+    stroke: $black;
+    shape-rendering: crispEdges;
+}
+
+.line {
+    fill: none;
+    stroke: $black;
+    stroke-width: 1.5px;
+}
+
+.temperature {
+    stroke: indianred;
+    color: indianred;
+    &.fill {
+        fill: indianred;
+    }
+}
+
+.humidity {
+    stroke: steelblue;
+    color: steelblue;
+    &.fill {
+        fill: steelblue;
+    }
+}
+
+
+
+// Tooltips
+
+div.tooltip {   
+    position: absolute;           
+    text-align: center;           
+    padding: 10px 20px;             
+    font-size: 12px;        
+    line-height: 15px;
+    background: steelblue;   
+    color: white;
+    border: 0px;      
+    border-radius: 8px;           
+    pointer-events: none;         
+}

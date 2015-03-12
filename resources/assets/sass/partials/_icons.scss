@@ -1,0 +1,412 @@
+///////////////
+// CSS ICONS //
+///////////////
+
+// main menu
+.icon_menu_container {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    @include flexbox();
+    position: absolute;
+    top: 0;
+    left: 30px;
+    cursor: pointer;
+    z-index: 10;
+    .icon_menu {
+        width: 20px;
+        height: 3px;
+        margin: auto auto;
+        background: $grayDark;
+        &:before {
+            content: '';
+            width: 20px;
+            height: 3px;
+            margin: -6px 0 0 0;
+            position: absolute;
+            background: inherit;
+        }
+        &:after {
+            content: '';
+            width: 20px;
+            height: 3px;
+            margin: 6px 0 0 0;
+            position: absolute;
+            background: inherit;
+        }
+    }
+}
+
+// menu small
+.icon_menu_container_small {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 0 0 4px !important;
+    position: relative !important;
+    top: 10px !important;
+    color: transparent !important;
+    .icon_menu_small {
+        width: 16px;
+        height: 2px;
+        margin: 8px 0 0 1px;
+        background: $iconColor;
+        &:before {
+            content: '';
+            width: 16px;
+            height: 2px;
+            position: absolute;
+            top: 3px;
+            left: 1px;
+            background: $iconColor;
+        }
+        &:after {
+            content: '';
+            width: 16px;
+            height: 2px;
+            position: absolute;
+            top: 13px;
+            left: 1px;
+            background: $iconColor;
+        }
+    }
+}
+
+// plus
+.icon_plus {
+    width: 18px !important;
+    height: 18px !important;
+    margin: 0 0 0 0 !important;
+    position: relative !important;
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 4px;
+        height: 18px;
+        position: absolute;
+        top: 0;
+        left: 7px;
+        background: $iconColor;
+    }
+    &:after {
+        content: '';
+        width: 18px;
+        height: 4px;
+        position: absolute;
+        top: 7px;
+        left: 0;
+        background: $iconColor;
+    }
+}
+
+// thick trash
+.icon_trash_thick {
+    width: 13px !important;
+    height: 13px !important;
+    margin: 0 4px;
+    position: relative !important;
+    border: 2px solid $iconColor !important;
+    top: 5px !important;
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 5px;
+        height: 1px;
+        position: absolute;
+        top: -5px;
+        left: 0;
+        border: 2px solid $iconColor;
+        @include border-radius-top(2px);
+    }
+    &:after {
+        content: '';
+        width: 1px;
+        height: 8px;
+        position: absolute;
+        border-left: 3px double $iconColor;
+        border-right: 3px double $iconColor;
+        top: 0;
+        left: 1px;
+    }
+}
+
+// thin trash
+.icon_trash_thin {
+    width: 11px !important;
+    height: 14px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 3px !important;
+    border: 1px solid $iconColor !important;
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 5px;
+        height: 1px;
+        position: absolute;
+        top: -3px;
+        left: 1px;
+        border: 1px solid $iconColor;
+        @include border-radius-top(2px);
+    }
+    &:after {
+        content: '';
+        width: 1px;
+        height: 11px;
+        position: absolute;
+        border-left: 3px double $iconColor;
+        border-right: 3px double $iconColor;
+        top: 0;
+        left: 1px;
+    }
+}
+
+// power
+.icon_power {
+    width: 14px !important;
+    height: 14px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative;
+    top: 4px !important;
+    background: inherit;
+    border: 2px solid $iconColor !important;
+    @include border-radius(14px);
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 4px;
+        height: 10px;
+        position: absolute;
+        top: -5px;
+        left: 3px;
+        background: inherit;
+    }
+    &:after {
+        content: '';
+        width: 2px;
+        height: 8px;
+        position: absolute;
+        top: -4px;
+        left: 4px;
+        background: $iconColor;
+    }
+}
+
+// dismiss
+.icon_dismiss {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 3px !important;
+    background: inherit !important;
+    border: 2px solid $white !important;
+    @include border-radius(20px);
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 2px;
+        height: 12px;
+        position: absolute;
+        top: 2px;
+        left: 7px;
+        @include rotate(-45deg);
+        background: $white;
+    }
+    &:after {
+        content: '';
+        width: 2px;
+        height: 12px;
+        position: absolute;
+        top: 2px;
+        left: 7px;
+        @include rotate(45deg);
+        background: $white;
+    }
+}
+// check
+.icon_check {
+    width: 15px !important;
+    height: 15px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 3px !important;
+    background: inherit !important;
+    border: 2px solid $iconColor !important;
+    @include border-radius(15px);
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 3px;
+        height: 6px;
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        @include rotate(-45deg);
+        background: $iconColor;
+    }
+    &:after {
+        content: '';
+        width: 3px;
+        height: 14px;
+        position: absolute;
+        top: -4px;
+        left: 8px;
+        @include rotate(45deg);
+        background: $iconColor;
+    }
+}
+
+// edit
+.icon_edit {
+    width: 15px !important;
+    height: 12px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 6px !important;
+    background: inherit !important;
+    border: 2px solid $iconColor !important;
+    @include border-radius(2px);
+    color: transparent !important;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        border-width: 2px 0 1px 3px;
+        border-style: solid;
+        border-color: transparent $iconColor;
+    }
+    &:after {
+        content: '';
+        width: 3px;
+        height: 11px;
+        position: absolute;
+        top: -6px;
+        left: 8px;
+        @include rotate(45deg);
+        background: $iconColor;
+    }
+}
+
+// home
+.icon_home {
+    width: 13px !important;
+    height: 10px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 6px !important;
+    background: inherit !important;
+    border-right: 2px solid $iconColor !important;
+    border-bottom: 2px solid $iconColor !important;
+    border-left: 2px solid $iconColor !important;
+    @include border-radius(2px);
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 2px;
+        height: 14px;
+        position: absolute;
+        top: -8px;
+        left: 8px;
+        @include rotate(-45deg);
+        background: $iconColor;
+    }
+    &:after {
+        content: '';
+        width: 2px;
+        height: 14px;
+        position: absolute;
+        top: -8px;
+        left: -1px;
+        @include rotate(45deg);
+        background: $iconColor;
+    }
+}
+
+// profile
+.icon_profile {
+    width: 16px !important;
+    height: 16px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 0px !important;
+    border: 0 !important;
+    color: transparent !important;
+    &:before {
+        content: '';
+        width: 16px;
+        height: 7px;
+        position: absolute;
+        top: 9px;
+        left: 0;
+        @include border-radius-top(5px);
+        background: $iconColor;
+    }
+    &:after {
+        content: '';
+        width: 6px;
+        height: 8px;
+        position: absolute;
+        top: 0; 
+        left: 5px;
+        @include border-radius(5px);
+        background: $iconColor;
+    }
+}
+
+// email
+.icon_email {
+    width: 19px !important;
+    height: 14px !important;
+    margin: 0 4px !important;
+    padding: 0 0 0 0 !important;
+    position: relative !important;
+    top: 2px !important;
+    border: 0 !important;
+    color: transparent !important;
+    overflow: hidden;
+    background: $iconColor;
+    &:before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 7px;
+        left: 3px;
+        border-width: 1px 0 0 1px;
+        border-style: solid;
+        border-color: lighten($iconColor,50%);
+        background: $iconColor;
+        /* css3 */
+        -webkit-transform:rotate(39deg) skew(-12deg);
+        -moz-transform:rotate(39deg) skew(-12deg);
+        -ms-transform:rotate(39deg) skew(-12deg);
+        -o-transform:rotate(39deg) skew(-12deg);
+        transform:rotate(39deg) skew(-12deg);
+    }
+    &:after {
+        content: '';
+        width: 14px;
+        height: 14px;
+        position: absolute;
+        top: -8px;
+        left: 2px;
+        border-width: 0 1px 1px 0;
+        border-style: solid;
+        border-color: lighten($iconColor,50%);
+        background: $iconColor;
+        /* css3 */
+        -webkit-transform:rotate(39deg) skew(-12deg);
+        -moz-transform:rotate(39deg) skew(-12deg);
+        -ms-transform:rotate(39deg) skew(-12deg);
+        -o-transform:rotate(39deg) skew(-12deg);
+        transform:rotate(39deg) skew(-12deg);
+    }
+}

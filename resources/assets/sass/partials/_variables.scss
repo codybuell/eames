@@ -1,0 +1,20 @@
+////////////
+// TABLES //
+////////////
+
+$table-cell-padding:                8px !default;
+$table-condensed-cell-padding:      5px !default;
+
+$table-bg:                          inherit !default;
+$table-bg-accent:                   #f9f9f9 !default;
+$table-bg-hover:                    #f5f5f5 !default;
+$table-bg-active:                   $table-bg-hover !default;
+
+$table-header-border-color:         $grayDark !default;
+$table-border-color:                $grayLighter !default;
+
+///////////////////
+// MISCELLANEOUS //
+///////////////////
+
+$fadedOpacity:                      0.5;
