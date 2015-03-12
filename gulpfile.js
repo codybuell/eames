@@ -23,8 +23,8 @@ elixir(function(mix) {
     // engines
     mix.scripts([
       '../assets/bower/jquery/dist/jquery.js',
-      '../assets/bower/bootstrap/dist/js/bootstrap.js',
-      '../assets/bower/d3/d3.js'
+      '../assets/bower/d3/d3.js',
+      '../assets/bower/bootstrap-sass-official/assets/javascripts/bootstrap.js'
     ],'public/assets/scripts/engines.js');
 
     // plugins
