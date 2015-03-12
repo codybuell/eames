@@ -9,8 +9,13 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
-Route::get('home', 'HomeController@index');
+Route::get('/', function() {
+  if (Auth::check()) {
+    return Redirect::to('dashboard');
+  } else {
+    return Redirect::to('login');
+  }
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +27,10 @@ Route::get('home', 'HomeController@index');
 */
 
 Route::group(['middleware' => 'auth'], function() {
+
+  Route::get('dashboard', function() {
+    return 'dashboard';
+  });
 
 });
 
