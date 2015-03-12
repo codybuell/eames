@@ -21,6 +21,10 @@ Route::get('home', 'HomeController@index');
 |
 */
 
+Route::group(['middleware' => 'auth'], function() {
+
+});
+
 /*
 |--------------------------------------------------------------------------
 | Authentication Routes
