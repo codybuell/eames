@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('layouts.fullscreen')
 
 @section('head')
   <title>Login - {{ env('SITE_NAME', 'EAMES') }}</title>

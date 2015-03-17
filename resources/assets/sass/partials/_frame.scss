@@ -1,3 +1,27 @@
+//////////////
+// WRAPPERS //
+//////////////
+
+#wrapper_fullscreen {
+    min-width: 900px;
+    height: 100%;
+}
+
+#content_fullscreen {
+    width: calc(100% - 100px);
+    height: calc(100% - 161px);
+    margin: 50px auto;
+}
+
+#wrapper {
+    min-width: 900px;
+}
+
+#content {
+    width: calc(100% - 100px);
+    margin: 50px auto 100px auto;
+}
+
 ////////////////
 // LOGIN PAGE //
 ////////////////
