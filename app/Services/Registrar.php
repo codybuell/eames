@@ -1,6 +1,6 @@
 <?php namespace EAMES\Services;
 
-use EAMES\User;
+use EAMES\Models\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

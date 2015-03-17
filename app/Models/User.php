@@ -1,4 +1,4 @@
-<?php namespace EAMES;
+<?php namespace EAMES\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
