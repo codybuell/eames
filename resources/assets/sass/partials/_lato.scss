@@ -1,0 +1,39 @@
+@font-face {
+    @include font-face('Lato', 'lato-hairline-webfont', 100, 'normal');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-hairlineitalic-webfont', 100, 'italic');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-light-webfont', 300, 'normal');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-lightitalic-webfont', 300, 'italic');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-regular-webfont', 400, 'normal');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-italic-webfont', 400, 'italic');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-bold-webfont', 700, 'normal');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-bolditalic-webfont', 700, 'italic');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-black-webfont', 800, 'normal');
+}
+
+@font-face {
+    @include font-face('Lato', 'lato-blackitalic-webfont', 800, 'italic');
+}

@@ -9,13 +9,13 @@
 |
 */
 
-Route::get('/', function() {
+Route::get('/', ['as' => 'home', function() {
   if (Auth::check()) {
     return Redirect::to('dashboard');
   } else {
     return Redirect::to('login');
   }
-});
+}]);
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +28,16 @@ Route::get('/', function() {
 
 Route::group(['middleware' => 'auth'], function() {
 
-  Route::get('dashboard', function() {
+  // dashboard
+  Route::get('dashboard', ['as' => 'dashboard', function() {
     return 'dashboard';
-  });
+  }]);
+
+  // users
+  Route::resource('users', 'UsersController');
+  Route::get('account',   ['as' => 'account',        'uses' => 'UsersController@account']);
+  Route::put('account',   ['as' => 'account.update', 'uses' => 'UsersController@account_update']);
+  Route::post('activate', ['as' => 'users.activate', 'uses' => 'UsersController@toggle_activation']);
 
 });
 

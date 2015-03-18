@@ -20,6 +20,9 @@ elixir(function(mix) {
       'styleie.scss'
     ],'public/assets/styles');
 
+    // fonts
+    mix.copy('resources/assets/bower/font-awesome/fonts', 'public/assets/fonts');
+
     // engines
     mix.scripts([
       '../assets/bower/jquery/dist/jquery.js',

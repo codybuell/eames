@@ -47,7 +47,8 @@
 }
 
 @mixin opacity($opacity) {
-    filter: alpha(opacity=#{round($opacity * 100)});
+    $opacity-ie: round($opacity * 100);
+    filter: alpha(opacity=$opacity-ie);
     opacity: $opacity;
     zoom: 1;
 }
@@ -77,10 +78,10 @@
 }
 
 @mixin order($val) {
-    -webkit-box-ordinal-group: $val;  
-    -moz-box-ordinal-group: $val;     
-    -ms-flex-order: $val;     
-    -webkit-order: $val;  
+    -webkit-box-ordinal-group: $val;
+    -moz-box-ordinal-group: $val;
+    -ms-flex-order: $val;
+    -webkit-order: $val;
     order: $val;
 }
 
@@ -97,4 +98,15 @@
     -ms-transform: rotate($val);
     -o-transform: rotate($val);
     transform: rotate($val);
+}
+
+@mixin font-face($family,$name,$weight,$style) {
+    font-family: '$family';
+    src: url('../fonts/$name.eot');
+    src: url('../fonts/$name.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/$name.woff') format('woff'),
+         url('../fonts/$name.ttf') format('truetype'),
+         url('../fonts/$name.svg#$name') format('svg');
+    font-weight: $weight;
+    font-style: $style;
 }

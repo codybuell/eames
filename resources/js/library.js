@@ -144,3 +144,19 @@ function ajaxForm($formid, $email, successFN, errorFN, invalidFN) {
     });
   };
 })(jQuery);
+
+/////////////////////////////
+// AJAX GET SESSION STATUS //
+/////////////////////////////
+
+// reloads page if session has expired to show login screen
+function checkSessionStatus() {
+  var sessionAPI = baseURL+'/api/session';
+  $.get(sessionAPI, function(response) {
+    if (response) {
+      return false;
+    } else {
+      window.location.replace(currentURL);
+    }
+  });
+}

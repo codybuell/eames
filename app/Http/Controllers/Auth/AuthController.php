@@ -1,6 +1,7 @@
 <?php namespace EAMES\Http\Controllers\Auth;
 
 use EAMES\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -47,6 +48,33 @@ class AuthController extends Controller {
     $this->registrar = $registrar;
 
     $this->middleware('guest', ['except' => 'getLogout']);
+  }
+
+  /**
+   * Override a login request to the application.
+   *
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function postLogin(Request $request) {
+
+    $this->validate($request, [
+      'login'    => 'required',
+      'password' => 'required',
+    ]);
+
+    $field = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
+    $request->merge([$field => $request->input('login')]);
+
+    if ($this->auth->attempt($request->only($field, 'password'))) {
+      return redirect()->intended($this->redirectPath());
+    }
+
+    return redirect($this->loginPath())
+          ->withInput($request->only('login', 'remember'))
+          ->withErrors([
+            'login' => $this->getFailedLoginMessage(),
+          ]);
   }
 
 }

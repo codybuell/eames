@@ -9,35 +9,20 @@
   <meta name="og:title" content="" />
   <meta name="og:description" content="" />
   <meta name="og:url" content="" />
-@stop
+@endsection
 
 @section('style')
   <style>
   </style>
-@stop
-
-@section('header')
-  @include('partials.toolbar')
-@stop
+@endsection
 
 @section('content')
-
-  @if (count($errors) > 0)
-    <div class="alert alert-danger">
-      <strong>Whoops!</strong> There were some problems with your input.<br><br>
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
 
   <div id="login_wrapper">
     <div id="login_form">
       {!! Form::open([ 'url' => 'login' ]) !!}
         <div>
-          {!! Form::text('email',null,['placeholder' => 'Email']) !!}
+          {!! Form::text('login',null,['placeholder' => 'Email or Username']) !!}
         </div>
         <div>
           {!! Form::password('password',['placeholder' => 'Password']) !!}
@@ -46,7 +31,7 @@
           {!! Form::submit('Login') !!}
         </div>
       {!! Form::close() !!}
-    </div> <!-- login form -->
+    </div>
     <div id="login_meta">
       <div>
         {!! link_to('password/email','Forgot your password?') !!}
@@ -54,13 +39,10 @@
       <div>
         {!! link_to('register','Register') !!}
       </div>
-    </div> <!-- login meta -->
-  </div> <!-- login wrapper -->
+    </div>
+  </div>
 
 @endsection
-
-@section('footer')
-@stop
 
 @section('scripts')
   <scripts>

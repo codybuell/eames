@@ -20,23 +20,23 @@
     @yield('style')
   </head>
   <body>
-  <div id="wrapper">
-    <header>
-      @yield('header')
-    </header>
-    <div id="content">
-      @yield('content')
-    </div><!-- content -->
-    <footer>
-      @yield('footer')
-    </footer>
-  </div><!-- wrapper -->
-  {!! HTML::script('assets/scripts/engines.js') !!}
-  {!! HTML::script('assets/scripts/plugins.js') !!}
-  {!! HTML::script('assets/scripts/scripts.js') !!}
-  @yield('scripts')
-  @if(App::environment('production'))
-    @include('partials.analytics')
-  @endif
+    <div id="wrapper">
+      <header>
+        @yield('header')
+      </header>
+      <div id="content">
+        @yield('content')
+      </div>
+      <footer>
+        @yield('footer')
+      </footer>
+    </div>
+    {!! HTML::script('assets/scripts/engines.js') !!}
+    {!! HTML::script('assets/scripts/plugins.js') !!}
+    {!! HTML::script('assets/scripts/scripts.js') !!}
+    @yield('scripts')
+    @if(App::environment('production'))
+      @include('partials.analytics')
+    @endif
   </body>
 </html>

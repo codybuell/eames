@@ -16,7 +16,11 @@ $(document).ready(function(){
   // ASSIGN ELEMENT VARIABLES //
   //////////////////////////////
 
-  var $window = $(window);
+  var $window      = $(window);
+  var $menu        = $('#menu');
+  var $messages    = $('#alert_bar, #error_bar');
+  var $quickcreate = $('#quickcreate');
+  var $content     = $('#content, #content_fullscreen');
 
   ////////////////////////////////////
   // ASSIGN ENVIRONMENTAL VARIABLES //
@@ -50,6 +54,9 @@ $(document).ready(function(){
   // CALLS //
   ///////////
 
+  // check session status every 10 minutes
+//var sessionCheck = setInterval(checkSessionStatus, 600000);
+
   // hide alt and title tooltips
   $('img').hideTips();
 
@@ -70,6 +77,28 @@ $(document).ready(function(){
       }
     }
   }, ".hover");
+
+  // menu functionality
+  $(document).on({
+    mouseenter: function () {
+      $menu.stop(true,true).fadeIn(500);
+      $content.stop(true,true).animate({'opacity':'0.2'}, 500);
+    },
+    mouseleave: function () {
+      $menu.stop(true,true).delay(2000).fadeOut(500);
+      $content.stop(true,true).animate({'opacity':'1.0'}, 500);
+    }
+  }, ".menu");
+
+  // retract alert and error bars
+  $messages.delay(4000).animate({
+    'margin-top' : '-60px',
+  },500);
+
+  // dismissal of messages
+  $(document).on('click', '.dismiss', function() {
+    $(this).parent().hide();
+  });
 
   //////////////////////////
   // WINDOW SCROLL EVENTS //

@@ -1,7 +1,16 @@
+// third party sheets
 @import '../bower/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import '../bower/font-awesome/scss/font-awesome.scss';
+
+// backend structure and config
+@import 'partials/mixins';
 @import 'partials/colors';
 @import 'partials/typography';
-@import 'partials/mixins';
+
+// fonts
+@import 'partials/lato';
+
+// custom styles
 @import 'partials/base';
 @import 'partials/forms';
 @import 'partials/frame';
