@@ -17,7 +17,7 @@
 @stop
 
 @section('header')
-  @include('partials.toolbar')
+  @include('partials.menubar')
 @stop
 
 @section('content')
@@ -42,7 +42,7 @@
         <th>
           Last Login
         </th>
-        <th class="nr">
+        <th class="text-nowrap">
           Login Count
         </th>
         <th>
@@ -57,7 +57,7 @@
       @else
         <tr class="inactive">
       @endif
-        <td class="cell-condensed">
+        <td class="condensed">
           {{ $user->id }}
         </td>
         <td>
@@ -69,32 +69,32 @@
         <td>
           $user->role->name
         </td>
-        <td class="cell-condensed">
+        <td class="condensed">
           {{ $user->profile->updated_at }}
         </td>
-        <td class="cell-condensed">
+        <td class="condensed">
           {{ $user->last_login }}
         </td>
-        <td class="cell-condensed tac">
+        <td class="condensed text-center">
           {{ $user->login_count }}
         </td>
-        <td class="cell-condensed">
-          <a href="mailto:{{ $user->email }}"><button class="icon_email text_button">Email</button></a>
-          <a href="{{ url("users/{$user->username}") }}"><button class="icon_profile text_button">View</button></a>
-          <a href="{{ url("users/{$user->username}/edit") }}"><button class="icon_edit text_button">Edit</button></a>
+        <td class="condensed">
+          <a href="mailto:{{ $user->email }}">@include('partials.buttons.email')</a>
+          <a href="{{ url("users/{$user->username}") }}">@include('partials.buttons.view')</a>
+          <a href="{{ url("users/{$user->username}/edit") }}">@include('partials.buttons.edit')</a>
           @if ($user->username != 'root')
             {!! Form::open(array('route' => array('users.destroy', $user->id),'method' => 'DELETE','class' => 'inline')) !!}
-              {!! Form::button('Delete',array('class' => 'icon_trash_thin text_button confirm','type' => 'submit')) !!}
+              @include('partials.buttons.delete')
             {!! Form::close() !!}
             @if ($user->active)
               {!! Form::open(array('route' => 'users.activate','class' => 'inline')) !!}
                 {!! Form::hidden('id',$user->id) !!}
-                {!! Form::button('Deactivate',array('class' => 'icon_power text_button confirm','type' => 'submit')) !!}
+                @include('partials.buttons.activate')
               {!! Form::close() !!}
             @else
               {!! Form::open(array('route' => 'users.activate','class' => 'inline')) !!}
                 {!! Form::hidden('id',$user->id) !!}
-                {!! Form::button('Activate',array('class' => 'icon_power text_button confirm','type' => 'submit')) !!}
+                @include('partials.buttons.activate')
               {!! Form::close() !!}
             @endif
           @endif

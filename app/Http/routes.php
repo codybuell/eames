@@ -30,7 +30,7 @@ Route::group(['middleware' => 'auth'], function() {
 
   // dashboard
   Route::get('dashboard', ['as' => 'dashboard', function() {
-    return 'dashboard';
+    return view('reports.dashboard');
   }]);
 
   // users

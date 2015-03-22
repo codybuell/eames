@@ -1,0 +1,99 @@
+/////////////
+// GENERAL //
+/////////////
+
+// structures
+
+.subrecord {
+    margin: 0 0 20px 0;
+    padding: 30px 20px 10px 20px;
+    @include border-box();
+    border: 1px solid $grayLight;
+}
+
+// display
+
+.faded {
+   @include opacity($fadedOpacity); 
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+.inactive {
+    background: $inactive;
+}
+
+// floats and alignments
+
+.flex {
+    @include flexbox();
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.cl {
+    clear: left;
+}
+
+.cr {
+    clear: right;
+}
+
+.cb {
+    clear: both;
+}
+
+// directions
+
+.rtl {
+    direction: rtl;
+}
+
+.ltr {
+    direction: ltr;
+}
+
+// cursors
+
+.pointer {
+    cursor: pointer;
+}
+
+.noselect {
+    @include noselect;
+}
+
+// type
+
+.cap {
+    text-transform: capitalize;
+}
+
+.upp {
+    text-transform: uppercase;
+}
+
+.lwr {
+    text-transform: lowercase;
+}
+
+.mono {
+    font-family: $monoFontFamily;
+}
+
+.space {
+    margin-right: 15px;
+    margin-left: 15px;
+}

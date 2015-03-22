@@ -76,11 +76,6 @@ th {
   }
 }
 
-.cell-condensed {
-    width: 1%;
-    white-space: nowrap;
-}
-
 //////////////
 // BORDERED //
 //////////////

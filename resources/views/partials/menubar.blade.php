@@ -5,7 +5,6 @@
     <div id="menu" class="menu">
       <ul class="menunav">
         <a href="{{ route('dashboard') }}"><li class="menunav_item">Dashboard</li></a>
-        <a href=""><li class="menunav_item">Dropbox</li></a>
         <li class="menunav_item">
           Tasks
           <ul class="subnav">
