@@ -1,6 +1,7 @@
 <?php namespace EAMES\Services;
 
 use EAMES\Models\User;
+use EAMES\Models\Role;
 use EAMES\Models\Profile;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
@@ -33,11 +34,13 @@ class Registrar implements RegistrarContract {
   public function create(array $data)
   {
 
-    // define user
+    // define user, default read only and inactive
     $user = new User([
       'username' => $data['username'],
       'email'    => $data['email'],
       'password' => bcrypt($data['password']),
+      'role_id'  => Role::where('name', '=', 'Read Only')->firstOrFail()->id,
+      'active'   => 0
     ]);
 
     // define associated profile
