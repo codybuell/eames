@@ -1,5 +1,6 @@
 <?php namespace EAMES\Http\Controllers\Auth;
 
+use Carbon\Carbon;
 use EAMES\Models\User;
 use EAMES\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -85,7 +86,7 @@ class AuthController extends Controller {
       $user->login_count++;
 
       // update last_login time
-      $user->last_login = new DateTime;
+      $user->last_login = Carbon::now();
       $user->save();
 
       // redirect to intended destination
