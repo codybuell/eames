@@ -6633,7 +6633,8 @@ html, body {
 
 #wrapper_fullscreen {
   min-width: 900px;
-  height: 100%;
+  min-height: 100%;
+  padding: 50px;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex; }
