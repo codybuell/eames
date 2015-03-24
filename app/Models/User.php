@@ -40,5 +40,13 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
     return $this->hasOne('EAMES\Models\Profile');
   }
 
+  /**
+   * Define relationship with role model.
+   *
+   * @return Role
+   */
+  public function role() {
+    return $this->belongsTo('EAMES\Models\Role');
+  }
 
 }

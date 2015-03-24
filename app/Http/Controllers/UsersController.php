@@ -39,7 +39,7 @@ class UsersController extends Controller {
   public function index() {
 
     // gather users
-    $users = $this->user->with('profile')->get();
+    $users = $this->user->with('role','profile')->get();
 
     // return view with the data
     return view('users.index', array(

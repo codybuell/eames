@@ -67,7 +67,7 @@
           {!! link_to("users/{$user->username}", $user->username) !!}
         </td>
         <td>
-          $user->role->name
+          {{ $user->role->name }}
         </td>
         <td class="condensed">
           {{ $user->profile->updated_at }}
