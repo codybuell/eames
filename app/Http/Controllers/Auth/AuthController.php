@@ -1,5 +1,6 @@
 <?php namespace EAMES\Http\Controllers\Auth;
 
+use EAMES\Models\User;
 use EAMES\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
@@ -56,20 +57,42 @@ class AuthController extends Controller {
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function postLogin(Request $request) {
+  public function postLogin(Guard $auth, Request $request) {
 
+    // require username/email and password
     $this->validate($request, [
       'login'    => 'required',
       'password' => 'required',
     ]);
 
+    // determine if username or email was used
     $field = filter_var($request->input('login'), FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
     $request->merge([$field => $request->input('login')]);
 
+    // check auth and redirect
     if ($this->auth->attempt($request->only($field, 'password'))) {
+
+      // identify the user
+      $user = User::find($auth->user()->id);
+
+      // active account check
+      if (!$user->active) {
+        $auth->logout();
+        return redirect($this->loginPath())->withErrors('Your account has not been activated.');
+      }
+
+      // update login_count
+      $user->login_count++;
+
+      // update last_login time
+      $user->last_login = new DateTime;
+      $user->save();
+
+      // redirect to intended destination
       return redirect()->intended($this->redirectPath());
     }
 
+    // auth failure handling
     return redirect($this->loginPath())
           ->withInput($request->only('login', 'remember'))
           ->withErrors([
