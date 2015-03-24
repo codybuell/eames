@@ -6773,6 +6773,8 @@ html, body {
   margin: 0 0 0 0;
   padding: 0 0 0 0;
   position: fixed;
+  top: 0;
+  left: 0;
   background: #2c2d2d;
   line-height: 60px;
   text-align: center;
