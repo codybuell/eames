@@ -3,6 +3,7 @@
 use Closure;
 use EAMES\Models\User;
 use Illuminate\Contracts\Auth\Guard;
+use Carbon\Carbon;
 
 class ActivationCheck {
 
@@ -32,8 +33,21 @@ class ActivationCheck {
     // active account check
     if ($this->auth->check()) {
       if (!$this->user->active) {
+
+        $created = new Carbon($this->user->created_at);
+        $now     = Carbon::now();
+
+        // logout the user
         $this->auth->logout();
-        return redirect('/login')->withErrors('Your account has not been activated.');
+
+        if ($created->addSeconds(2)->gt($now)) {
+          // if regestered within the last two seconds display registration notification
+          return redirect('/login')->withAlert('Your account has been registered and is awaiting activation.');
+        } else {
+          // else show error for inactive account
+          return redirect('/login')->withErrors('Your account has not been activated.');
+        }
+
       }
     }
 
