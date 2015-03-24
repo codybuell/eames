@@ -16,3 +16,17 @@ html, body {
 * {
     background: inherit;
 }
+
+a, a:visited, a:active {
+    text-decoration: none;
+    font-weight: normal;
+    outline: 0;
+    color: $a_active;
+}
+
+a:hover, a:focus {
+    text-decoration: none;
+    font-weight: normal;
+    outline: 0;
+    color: $a_hover;
+}

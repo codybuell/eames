@@ -33,7 +33,7 @@
 
   <div id="menu_bar_right" class="pull-right">
     <ul class="menunav">
-      <li class="menunav_item">
+      <li class="menunav_item text-capitalize">
         @if (Auth::user()->profile->first_name)
           Hello {{ Auth::user()->profile->first_name }}
         @else
