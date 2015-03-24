@@ -76,12 +76,6 @@ class AuthController extends Controller {
       // identify the user
       $user = User::find($auth->user()->id);
 
-      // active account check
-      if (!$user->active) {
-        $auth->logout();
-        return redirect($this->loginPath())->withErrors('Your account has not been activated.');
-      }
-
       // update login_count
       $user->login_count++;
 
