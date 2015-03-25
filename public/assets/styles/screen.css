@@ -6621,6 +6621,9 @@ table i.fa-power-off {
   position: relative;
   top: 1px; }
 
+.full {
+  width: 100%; }
+
 .inline {
   display: inline; }
 
@@ -6652,6 +6655,7 @@ html, body {
   letter-spacing: 1px;
   line-height: 1.5em;
   color: #333;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased; }
 
 *:focus {
@@ -6689,7 +6693,7 @@ a:hover, a:focus {
   min-width: 900px; }
 
 #content {
-  width: calc(100% - 100px);
+  width: calc(100% - 70px);
   margin: 50px auto 100px auto; }
 
 #login_wrapper {
@@ -6835,6 +6839,13 @@ a:hover, a:focus {
 #error_bar {
   background: #cd5c5c; }
 
+#profile_image {
+  width: 275px;
+  height: 285px;
+  margin: 0 50px 0 0;
+  display: block;
+  background: #ccc; }
+
 ::-webkit-input-placeholder {
   /* WebKit browsers */
   color: #999; }
@@ -6856,7 +6867,9 @@ form {
   padding: 0; }
 
 label {
-  color: #999; }
+  color: #999;
+  font-size: 13px;
+  font-weight: 400; }
 
 input {
   box-sizing: border-box;
@@ -6951,7 +6964,7 @@ button.text_button {
   height: 434px; }
 
 #create_user_notes {
-  height: 530px; }
+  height: 686px; }
 
 
 /*# sourceMappingURL=screen.css.map */

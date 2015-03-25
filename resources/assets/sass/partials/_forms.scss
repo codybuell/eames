@@ -26,6 +26,8 @@ form {
 
 label {
     color: $formLabel;
+    font-size: 13px;
+    font-weight: $baseFontWeight;
 }
 
 input {
@@ -141,5 +143,5 @@ button.text_button {
 }
 
 #create_user_notes {
-    height: 530px;
+    height: 686px;
 }

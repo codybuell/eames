@@ -22,9 +22,10 @@
   <body>
     <div id="wrapper">
       <header>
+        @include('partials.alertbar')
         @yield('header')
       </header>
-      <div id="content">
+      <div id="content" class="container">
         @yield('content')
       </div>
       <footer>

@@ -9,16 +9,16 @@
   <meta name="og:title" content="" />
   <meta name="og:description" content="" />
   <meta name="og:url" content="" />
-@stop
+@endsection
 
 @section('style')
   <style>
   </style>
-@stop
+@endsection
 
 @section('header')
   @include('partials.menubar')
-@stop
+@endsection
 
 @section('content')
   <table class="table">
@@ -61,10 +61,10 @@
           {{ $user->id }}
         </td>
         <td>
-          {!! link_to("users/{$user->username}", $user->profile->first_name.' '.$user->profile->last_name) !!}
+          {!! link_to("users/{$user->id}", $user->profile->first_name.' '.$user->profile->last_name) !!}
         </td>
         <td>
-          {!! link_to("users/{$user->username}", $user->username) !!}
+          {!! link_to("users/{$user->id}", $user->username) !!}
         </td>
         <td>
           {{ $user->role->name }}
@@ -80,8 +80,8 @@
         </td>
         <td class="condensed">
           <a href="mailto:{{ $user->email }}">@include('partials.buttons.email')</a>
-          <a href="{{ url("users/{$user->username}") }}">@include('partials.buttons.view')</a>
-          <a href="{{ url("users/{$user->username}/edit") }}">@include('partials.buttons.edit')</a>
+          <a href="{{ url("users/{$user->id}") }}">@include('partials.buttons.view')</a>
+          <a href="{{ url("users/{$user->id}/edit") }}">@include('partials.buttons.edit')</a>
           @if ($user->username != 'root')
             {!! Form::open(array('route' => array('users.destroy', $user->id),'method' => 'DELETE','class' => 'inline')) !!}
               @include('partials.buttons.delete')
@@ -106,7 +106,7 @@
 @endsection
 
 @section('footer')
-@stop
+@endsection
 
 @section('scripts')
   <scripts>

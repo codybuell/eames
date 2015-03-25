@@ -1,1 +1,1 @@
-<button class="text_button" type="submit"><i class="fa fa-fw fa-envelope-o"></i></button>
+<button title="Email" class="text_button" type="submit"><i class="fa fa-fw fa-envelope-o"></i></button>

@@ -20,7 +20,7 @@
 }
 
 #content {
-    width: calc(100% - 100px);
+    width: calc(100% - 70px);
     margin: 50px auto 100px auto;
 }
 
@@ -202,4 +202,16 @@
 
 #error_bar {
     background: $red;
+}
+
+/////////////////
+// USERS VIEWS //
+/////////////////
+
+#profile_image {
+    width: 275px;
+    height: 285px;
+    margin: 0 50px 0 0;
+    display: block;
+    background: #ccc;
 }
