@@ -49,9 +49,9 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 mark_content">
       <hr />
-      {{ $user->profile->notes }}
+      {!! $notes !!}
     </div>
   </div>
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use EAMES\Models\User;
 use EAMES\Models\Profile;
 use EAMES\Models\Role;
+use Markdown;
 
 class UsersController extends Controller {
 
@@ -216,9 +217,13 @@ class UsersController extends Controller {
     // find the selected user
     $user = $this->user->whereId($id)->with('role', 'profile')->first();
 
+    // generate markdown
+    $notes = Markdown::convertToHtml($user->profile->notes);
+
     // return the view
     return view('users.show', [
-      'user' => $user
+      'user'  => $user,
+      'notes' => $notes
     ]);
 
   }

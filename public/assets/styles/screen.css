@@ -6621,6 +6621,47 @@ table i.fa-power-off {
   position: relative;
   top: 1px; }
 
+.mark_title {
+  margin: 0 0 50px 0;
+  border-bottom: 1px solid #999;
+  font-size: 3em;
+  line-height: 1.5em;
+  font-weight: 500; }
+
+.mark_content {
+  margin: 0 0 100px 0; }
+  .mark_content a, .mark_content a:visited, .mark_content a:active {
+    text-decoration: underline;
+    font-weight: 500;
+    color: #333; }
+  .mark_content a:hover {
+    text-decoration: underline;
+    font-weight: 500;
+    color: #000; }
+  .mark_content hr {
+    margin: 40px 0;
+    border: 0;
+    border-bottom: 1px dashed #999; }
+  .mark_content ul, .mark_content ol {
+    margin: 0 0 20px 0;
+    padding: 0 0 0 0;
+    display: block; }
+  .mark_content ol li {
+    margin: 0 0 0 35px;
+    padding: 0 0 0 0;
+    display: list-item;
+    list-style: decimal;
+    list-style-position: outside; }
+  .mark_content ul li {
+    margin: 0 0 0 20px;
+    padding: 0 0 0 0;
+    display: list-item;
+    list-style: disc;
+    list-style-position: outside; }
+  .mark_content pre {
+    padding: 15px;
+    border: 1px solid #999; }
+
 .full {
   width: 100%; }
 
