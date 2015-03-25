@@ -138,6 +138,12 @@ return [
     'Illuminate\Html\HtmlServiceProvider',
 
     /*
+     * Third Party Service Providers...
+     */
+
+    'GrahamCampbell\Markdown\MarkdownServiceProvider',
+
+    /*
      * Application Service Providers...
      */
     'EAMES\Providers\AppServiceProvider',
@@ -195,6 +201,7 @@ return [
     'View'      => 'Illuminate\Support\Facades\View',
     'HTML'      => 'Illuminate\Html\HtmlFacade',
     'Form'      => 'Illuminate\Html\FormFacade',
+    'Markdown'  => 'GrahamCampbell\Markdown\Facades\Markdown',
 
   ],
 
