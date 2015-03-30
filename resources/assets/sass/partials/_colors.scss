@@ -49,3 +49,16 @@ $p_selection:                       $powderBlue;
 $bodyBackground:                    $white;
 $iconColor:                         $grayDark;
 $inactive:                          $red;
+
+/////////////////////////
+// BOOTSTRAP OVERRIDES //
+/////////////////////////
+
+// buttons
+$btn-default-bg:                    $gray;
+$btn-default-color:                 $white;
+$btn-default-border:                $gray;
+
+// input
+$input-border:                      $grayLighter;
+$input-height-base:                 50px;

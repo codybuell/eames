@@ -20,3 +20,4 @@ Thumbs.db
 /node_modules
 .env
 tags
+/public/assets/images/*

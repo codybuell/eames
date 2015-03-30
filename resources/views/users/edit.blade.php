@@ -21,7 +21,7 @@
 @endsection
 
 @section('content')
-  {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT']) !!}
+  {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'PUT', 'files' => true]) !!}
     <div class="row">
       <div class="col-md-4">
         {!! Form::label('username', 'Username') !!}
@@ -33,31 +33,40 @@
         {!! Form::label('profile[title]', 'Title') !!}
         {!! Form::text('profile[title]',null,['placeholder' => 'Title', 'class' => 'full', 'tabindex' => '3']) !!}
         {!! Form::label('profile[office_location]', 'Office Location') !!}
-        {!! Form::text('profile[office_location]',null,['placeholder' => 'Office Location', 'class' => 'full', 'tabindex' => '4']) !!}
+        {!! Form::text('profile[office_location]',null,['placeholder' => 'Office Location', 'class' => 'full', 'tabindex' => '5']) !!}
         {!! Form::label('profile[manager_id]', 'Manager') !!}
-        {!! Form::select('profile[manager_id]', $managers, null, ['class' => 'full', 'tabindex' => '5']) !!}
+        {!! Form::select('profile[manager_id]', $managers, null, ['class' => 'full', 'tabindex' => '6']) !!}
         {!! Form::label('password', 'Password') !!}
-        {!! Form::password('password',['placeholder' => 'Password', 'class' => 'full', 'tabindex' => '13']) !!}
+        {!! Form::password('password',['placeholder' => 'Password', 'class' => 'full', 'tabindex' => '14']) !!}
       </div>
       <div class="col-md-4">
         {!! Form::label('role_id', 'Role') !!}
-        {!! Form::select('role_id', $roles, null, ['class' => 'full', 'tabindex' => '6']) !!}
+        {!! Form::select('role_id', $roles, null, ['class' => 'full', 'tabindex' => '7']) !!}
         {!! Form::label('email', 'Email Address') !!}
-        {!! Form::email('email',null,['placeholder' => 'Email', 'class' => 'full', 'tabindex' => '7']) !!}
+        {!! Form::email('email',null,['placeholder' => 'Email', 'class' => 'full', 'tabindex' => '8']) !!}
         {!! Form::label('profile[phone_work_office]', 'Office Phone') !!}
-        {!! Form::text('profile[phone_work_office]',null,['placeholder' => 'Work Phone (Office)', 'class' => 'full', 'tabindex' => '8']) !!}
+        {!! Form::text('profile[phone_work_office]',null,['placeholder' => 'Work Phone (Office)', 'class' => 'full', 'tabindex' => '9']) !!}
         {!! Form::label('profile[phone_work_mobile]', 'Work Mobile Phone') !!}
-        {!! Form::text('profile[phone_work_mobile]',null,['placeholder' => 'Work Phone (Mobile)', 'class' => 'full', 'tabindex' => '9']) !!}
+        {!! Form::text('profile[phone_work_mobile]',null,['placeholder' => 'Work Phone (Mobile)', 'class' => 'full', 'tabindex' => '10']) !!}
         {!! Form::label('profile[phone_personal_home]', 'Personal Home Phone') !!}
-        {!! Form::text('profile[phone_personal_home]',null,['placeholder' => 'Personal Phone (Home)', 'class' => 'full', 'tabindex' => '10']) !!}
+        {!! Form::text('profile[phone_personal_home]',null,['placeholder' => 'Personal Phone (Home)', 'class' => 'full', 'tabindex' => '11']) !!}
         {!! Form::label('profile[phone_personal_mobile]', 'Personal Mobile Phone') !!}
-        {!! Form::text('profile[phone_personal_mobile]',null,['placeholder' => 'Personal Phone (Mobile)', 'class' => 'full', 'tabindex' => '11']) !!}
+        {!! Form::text('profile[phone_personal_mobile]',null,['placeholder' => 'Personal Phone (Mobile)', 'class' => 'full', 'tabindex' => '12']) !!}
         {!! Form::label('password_confirmation', 'Password Confirmation') !!}
-        {!! Form::password('password_confirmation',['placeholder' => 'Confirm Password', 'class' => 'full', 'tabindex' => '14']) !!}
+        {!! Form::password('password_confirmation',['placeholder' => 'Confirm Password', 'class' => 'full', 'tabindex' => '15']) !!}
       </div>
       <div class="col-md-4">
+        {!! Form::label('profile[photo]', 'Profile Image') !!}
+        <div class="input-group">
+          <span class="input-group-btn">
+            <span class="btn btn-default btn-file">
+              Browse&hellip; <input name="profile[photo]" type="file" accept="image/x-png, image/gif, image/jpeg">
+            </span>
+          </span>
+          <input type="text" class="full" readonly>
+        </div>
         {!! Form::label('profile[notes]', 'Notes') !!}
-        {!! Form::textarea('profile[notes]',null,['placeholder' => 'Notes', 'id' => 'create_user_notes', 'class' => 'full', 'tabindex' => '12']) !!}
+        {!! Form::textarea('profile[notes]',null,['placeholder' => 'Notes', 'id' => 'create_user_notes', 'class' => 'full', 'tabindex' => '13']) !!}
       </div>
     </div>
     <div class="row">
@@ -73,6 +82,24 @@
 @stop
 
 @section('scripts')
-  <scripts>
-  </scripts>
+  <script>
+    $(document).on('change', '.btn-file :file', function() {
+      var input = $(this),
+          numFiles = input.get(0).files ? input.get(0).files.length : 1,
+          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+      input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready( function() {
+        $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+            var input = $(this).parents('.input-group').find(':text'),
+                log = numFiles > 1 ? numFiles + ' files selected' : label;
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+        });
+    });
+  </script>
 @endsection

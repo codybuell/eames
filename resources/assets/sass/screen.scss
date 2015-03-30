@@ -1,11 +1,15 @@
-// third party sheets
-@import '../bower/bootstrap-sass-official/assets/stylesheets/bootstrap';
-@import '../bower/font-awesome/scss/font-awesome.scss';
-
 // backend structure and config
 @import 'partials/mixins';
 @import 'partials/colors';
 @import 'partials/typography';
+
+// bootstrap overrides
+$border-radius-base:    0px;
+$input-height-base:     50px;
+
+// third party sheets
+@import '../bower/bootstrap-sass-official/assets/stylesheets/bootstrap';
+@import '../bower/font-awesome/scss/font-awesome.scss';
 
 // fonts
 @import 'partials/lato';

@@ -7,6 +7,7 @@ use EAMES\Models\User;
 use EAMES\Models\Profile;
 use EAMES\Models\Role;
 use Markdown;
+use File;
 
 class UsersController extends Controller {
 
@@ -85,6 +86,31 @@ class UsersController extends Controller {
     $this->user->profile->phone_personal_mobile = $input['profile']['phone_personal_mobile'];
     $this->user->profile->office_location       = $input['profile']['office_location'];
     $this->user->profile->notes                 = $input['profile']['notes'];
+
+    // handle profile image if present
+    if (!empty($input['profile']['photo'])) {
+
+      $folder   = public_path().'/assets/images/users/';
+      $file     = $input['profile']['photo'];
+      $origExt  = $file->getClientOriginalExtension();
+
+      // check for successful upload
+      // check for accepted file types
+      // check for reasonable size
+      // resize crop scale
+    //$origName = $file->getClientOriginalName();
+    //$size     = $file->getClientSize();
+    //$mime     = $file->getClientMimeType();
+
+      // rename the file to username.ext
+      $name     = $this->user->username.'.'.$origExt;
+
+      // move the file
+      $file->move($folder,$name);
+
+      // store path in db
+      $this->user->profile->photo = url('/assets/images/users').'/'.$name;
+    }
 
     // push to user and associated tables
     $this->user->push();
