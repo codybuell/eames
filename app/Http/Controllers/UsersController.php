@@ -6,7 +6,6 @@ use EAMES\Models\User;
 use EAMES\Models\Profile;
 use EAMES\Models\Role;
 use Markdown;
-//use File;
 
 class UsersController extends Controller {
 

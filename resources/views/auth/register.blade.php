@@ -1,4 +1,4 @@
-@extends('layouts.fullscreen')
+@extends('layouts.fullscreen-bare')
 
 @section('head')
   <title>Register - {{ env('SITE_NAME', 'EAMES') }}</title>

@@ -5,8 +5,7 @@
 #wrapper_fullscreen {
     min-width: 900px;
     min-height: 100%;
-    padding: 50px;
-    @include flexbox();
+    height: 100%;
 }
 
 #content_fullscreen {
@@ -29,8 +28,9 @@
 ////////////////
 
 #login_wrapper {
-    width: 402px;
+    width: 502px;
     margin: auto auto;
+    padding: 50px;
     background: transparent;
     z-index: 100;
     #login_form {
@@ -202,6 +202,21 @@
 
 #error_bar {
     background: $red;
+}
+
+//////////////
+// TOOLBARS //
+//////////////
+
+.toolbar {
+    height: 30px;
+    margin: 40px 50px;
+    padding: 0;
+    i {
+        margin: 0 5px;
+        vertical-align: bottom;
+        font-size: 22px;
+    }
 }
 
 /////////////////

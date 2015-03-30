@@ -83,16 +83,16 @@
           <a href="{{ url("users/{$user->id}") }}">@include('partials.buttons.view')</a>
           <a href="{{ url("users/{$user->id}/edit") }}">@include('partials.buttons.edit')</a>
           @if ($user->username != 'root')
-            {!! Form::open(array('route' => array('users.destroy', $user->id),'method' => 'DELETE','class' => 'inline')) !!}
+            {!! Form::open(['route' => ['users.destroy', $user->id],'method' => 'DELETE','class' => 'inline']) !!}
               @include('partials.buttons.delete')
             {!! Form::close() !!}
             @if ($user->active)
-              {!! Form::open(array('route' => 'users.activate','class' => 'inline')) !!}
+              {!! Form::open(['route' => 'users.activate','class' => 'inline']) !!}
                 {!! Form::hidden('id',$user->id) !!}
                 @include('partials.buttons.activate')
               {!! Form::close() !!}
             @else
-              {!! Form::open(array('route' => 'users.activate','class' => 'inline')) !!}
+              {!! Form::open(['route' => 'users.activate','class' => 'inline']) !!}
                 {!! Form::hidden('id',$user->id) !!}
                 @include('partials.buttons.activate')
               {!! Form::close() !!}

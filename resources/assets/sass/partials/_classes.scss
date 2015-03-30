@@ -15,6 +15,10 @@
     white-space: nowrap;
 }
 
+.flex {
+    @include flexbox();
+}
+
 ////////////
 // Tables //
 ////////////
@@ -38,3 +42,12 @@
         color: $white;
     }
 }
+
+//////////
+// Type //
+//////////
+
+.mono {
+    font-family: $monoFontFamily;
+}
+

@@ -39,6 +39,10 @@ Route::group(['middleware' => 'auth'], function() {
   Route::put('account',   ['as' => 'account.update', 'uses' => 'UsersController@account_update']);
   Route::post('activate', ['as' => 'users.activate', 'uses' => 'UsersController@toggle_activation']);
 
+  // logs
+  Route::resource('logs', 'LogsController');
+  Route::get('logs/search/{search}', ['as' => 'logs.search', 'uses' => 'LogsController@search']);
+
 });
 
 /*

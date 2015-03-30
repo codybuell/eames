@@ -20,17 +20,9 @@
     @yield('style')
   </head>
   <body>
-    <div id="wrapper_fullscreen">
-      <header>
-        @include('partials.alertbar')
-        @yield('header')
-      </header>
-      <div id="content_fullscreen" class="">
-        @yield('content')
-      </div>
-      <footer>
-        @yield('footer')
-      </footer>
+    <div id="wrapper_fullscreen" class="flex">
+      @include('partials.alertbar')
+      @yield('content')
     </div>
     {!! HTML::script('assets/scripts/engines.js') !!}
     {!! HTML::script('assets/scripts/plugins.js') !!}

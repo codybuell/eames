@@ -6672,6 +6672,11 @@ table i.fa-power-off {
   width: 1%;
   white-space: nowrap; }
 
+.flex {
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; }
+
 .inactive {
   background: #cd5c5c;
   color: #fff; }
@@ -6687,6 +6692,9 @@ table i.fa-power-off {
     color: #fff; }
   .inactive i {
     color: #fff; }
+
+.mono {
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace; }
 
 html, body {
   height: 100%;
@@ -6720,10 +6728,7 @@ a:hover, a:focus {
 #wrapper_fullscreen {
   min-width: 900px;
   min-height: 100%;
-  padding: 50px;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex; }
+  height: 100%; }
 
 #content_fullscreen {
   width: calc(100% - 100px);
@@ -6738,8 +6743,9 @@ a:hover, a:focus {
   margin: 50px auto 100px auto; }
 
 #login_wrapper {
-  width: 402px;
+  width: 502px;
   margin: auto auto;
+  padding: 50px;
   background: transparent;
   z-index: 100; }
   #login_wrapper #login_form {
@@ -6879,6 +6885,15 @@ a:hover, a:focus {
 #error_bar {
   background: #cd5c5c; }
 
+.toolbar {
+  height: 30px;
+  margin: 40px 50px;
+  padding: 0; }
+  .toolbar i {
+    margin: 0 5px;
+    vertical-align: bottom;
+    font-size: 22px; }
+
 #profile_image {
   width: 310px;
   height: 310px;
@@ -6982,7 +6997,7 @@ button.text_button {
     width: 100%; }
   .full_page_basic_form textarea {
     width: 100%;
-    height: calc(100% - 150px); }
+    height: calc(100% - 156px); }
   .full_page_basic_form h3 {
     display: inline-block;
     line-height: 1.1em; }
@@ -6991,7 +7006,7 @@ button.text_button {
   height: 30px;
   display: inline;
   position: relative;
-  top: -6px; }
+  top: 0px; }
 
 .quickcreate {
   height: 30px;
