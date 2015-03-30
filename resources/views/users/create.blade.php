@@ -21,7 +21,7 @@
 @endsection
 
 @section('content')
-  {!! Form::open(['route' => 'users.store']) !!}
+  {!! Form::open(['route' => 'users.store', 'files' => true]) !!}
     <div class="row">
       <div class="col-md-4">
         {!! Form::label('username', 'Username') !!}
@@ -56,6 +56,15 @@
         {!! Form::password('password_confirmation',['placeholder' => 'Confirm Password', 'class' => 'full', 'tabindex' => '14']) !!}
       </div>
       <div class="col-md-4">
+        {!! Form::label('profile[photo]', 'Profile Image') !!}
+        <div class="input-group">
+          <span class="input-group-btn">
+            <span class="btn btn-default btn-file">
+              Browse&hellip; <input name="profile[photo]" type="file" accept="image/x-png, image/gif, image/jpeg">
+            </span>
+          </span>
+          <input type="text" class="full" readonly>
+        </div>
         {!! Form::label('profile[notes]', 'Notes') !!}
         {!! Form::textarea('profile[notes]',null,['placeholder' => 'Notes', 'id' => 'create_user_notes', 'class' => 'full', 'tabindex' => '12']) !!}
       </div>
@@ -73,6 +82,24 @@
 @stop
 
 @section('scripts')
-  <scripts>
-  </scripts>
+  <script>
+    $(document).on('change', '.btn-file :file', function() {
+      var input = $(this),
+          numFiles = input.get(0).files ? input.get(0).files.length : 1,
+          label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+      input.trigger('fileselect', [numFiles, label]);
+    });
+
+    $(document).ready( function() {
+        $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+            var input = $(this).parents('.input-group').find(':text'),
+                log = numFiles > 1 ? numFiles + ' files selected' : label;
+            if( input.length ) {
+                input.val(log);
+            } else {
+                if( log ) alert(log);
+            }
+        });
+    });
+  </script>
 @endsection

@@ -1,13 +1,12 @@
 <?php namespace EAMES\Http\Controllers;
 
-use EAMES\Http\Requests;
 use EAMES\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use EAMES\Models\User;
 use EAMES\Models\Profile;
 use EAMES\Models\Role;
 use Markdown;
-use File;
+//use File;
 
 class UsersController extends Controller {
 
@@ -225,6 +224,32 @@ class UsersController extends Controller {
     $profile->phone_personal_mobile = $input['profile']['phone_personal_mobile'];
     $profile->office_location       = $input['profile']['office_location'];
     $profile->notes                 = $input['profile']['notes'];
+
+    // handle profile image if present
+    if (!empty($input['profile']['photo'])) {
+
+      $folder   = public_path().'/assets/images/users/';
+      $file     = $input['profile']['photo'];
+      $origExt  = $file->getClientOriginalExtension();
+
+      // check for successful upload
+      // check for accepted file types
+      // check for reasonable size
+      // resize crop scale
+    //$origName = $file->getClientOriginalName();
+    //$size     = $file->getClientSize();
+    //$mime     = $file->getClientMimeType();
+
+      // rename the file to username.ext
+      $name     = $this->user->username.'.'.$origExt;
+
+      // move the file
+      $file->move($folder,$name);
+
+      // store path in db
+      $profile->photo = url('/assets/images/users').'/'.$name;
+    }
+
     $this->user->profile()->save($profile);
 
     // redirect to the user index
