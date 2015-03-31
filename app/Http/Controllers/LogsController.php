@@ -21,6 +21,7 @@ class LogsController extends Controller {
    */
   protected $log;
   protected $types;
+  protected $assoc;
 
   /**
    * Class initialization.
@@ -53,7 +54,21 @@ class LogsController extends Controller {
     $this->types = [
       ''               => 'Select Log Type',
       'I&T Activity'   => 'I&T Activity',
-      'Administration' => 'Administration'
+      'Administration' => 'Administration',
+    ];
+
+    // define log associations
+    $this->assoc = [
+      'log_placeholder'   => 'Select Association',
+      'log_hardware'     => 'hardware',
+      'log_software'     => 'software',
+      'log_license'      => 'license',
+      'log_installation' => 'installation',
+      'log_maintenance'  => 'maintenance',
+      'log_project'      => 'project',
+      'log_task'         => 'task',
+      'log_issue'        => 'issue',
+      'log_event'        => 'event',
     ];
 
   }
@@ -110,7 +125,8 @@ class LogsController extends Controller {
 
     // return creation view
     return view('logs.create', [
-      'types' => $this->types
+      'types' => $this->types,
+      'assoc' => $this->assoc
     ]);
 
   }

@@ -24,17 +24,29 @@
   <div class="full_page_basic_form">
     {!! Form::open([ 'route' => 'logs.store' ]) !!}
       <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-6">
           {!! Form::text('title',null,['placeholder' => 'Title', 'class' => 'full']) !!}
         </div>
-        <div class="col-md-4">
-          {!! Form::text('system',null,['placeholder' => 'System', 'class' => 'full']) !!}
+        <div class="col-md-2">
+          {!! Form::select('assoc',$assoc,null,['id' => 'log_selector', 'class' => 'full chosen-select']) !!}
         </div>
-        <div class="col-md-3">
-          {!! Form::select('type', $types,null,['class' => 'full']) !!}
+        <div class="col-md-2">
+          {!! Form::text('system',null,['placeholder' => '', 'id' => 'log_placeholder', 'class' => 'full dependent', 'disabled' => 'disabled']) !!}
+          {!! Form::text('system',null,['placeholder' => 'hardware', 'id' => 'log_hardware', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'software', 'id' => 'log_software', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'license', 'id' => 'log_license', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'installation', 'id' => 'log_installation', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'mainteneance', 'id' => 'log_maintenance', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'project', 'id' => 'log_project', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'task', 'id' => 'log_task', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'issue', 'id' => 'log_issue', 'class' => 'full dependent hidden']) !!}
+          {!! Form::text('system',null,['placeholder' => 'event', 'id' => 'log_event', 'class' => 'full dependent hidden']) !!}
+        </div>
+        <div class="col-md-2">
+          {!! Form::select('type',$types,null,['class' => 'full chosen-select']) !!}
         </div>
       </div>
-      {!! Form::textarea('content',null,['placeholder' => 'Activity', 'class' => 'mono']) !!}
+      {!! Form::textarea('notes',null,['placeholder' => 'Activity', 'class' => 'mono']) !!}
       {!! Form::submit('Save') !!}
     {!! Form::close() !!}
   </div>

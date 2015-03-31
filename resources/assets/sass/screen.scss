@@ -4,12 +4,18 @@
 @import 'partials/typography';
 
 // bootstrap overrides
-$border-radius-base:    0px;
-$input-height-base:     50px;
+$border-radius-base:        0px;
+$input-height-base:         50px;
+
+// chosen overrides
+$chosen-sprite-path:        '../graphics/chosen-sprite.png' !default;
+$chosen-sprite-retina-path: '../graphics/chosen-sprite@2x.png' !default;
 
 // third party sheets
 @import '../bower/bootstrap-sass-official/assets/stylesheets/bootstrap';
 @import '../bower/font-awesome/scss/font-awesome.scss';
+@import '../bower/bootstrap-chosen/bootstrap-chosen-variables.scss';
+@import '../bower/bootstrap-chosen/bootstrap-chosen.scss';
 
 // fonts
 @import 'partials/lato';

@@ -100,6 +100,16 @@ $(document).ready(function(){
     $(this).parent().hide();
   });
 
+  // chosen select forms
+  $('.chosen-select').chosen();
+
+  // logs select forms
+  $("#log_selector").chosen().change(function () {
+    var field = $(this).val();
+    $('.dependent').addClass('hidden');
+    $('#'+field).removeClass('hidden');
+  }).trigger('change');
+
   //////////////////////////
   // WINDOW SCROLL EVENTS //
   //////////////////////////
