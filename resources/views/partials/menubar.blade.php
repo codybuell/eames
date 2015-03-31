@@ -15,9 +15,9 @@
           </ul>
         </li>
         <li class="menunav_item">
-        <a href="">Logs</a>
+        <a href="{{ route('logs.index') }}">Logs</a>
           <ul class="subnav">
-            <a href=""><li class="subnav_item">Create New Log</li></a>
+            <a href="{{ route('logs.create') }}"><li class="subnav_item">Create New Log</li></a>
           </ul>
         </li>
         <li class="menunav_item">
