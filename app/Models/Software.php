@@ -2,14 +2,14 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model {
+class Software extends Model {
 
   /**
    * The database table used by the model.
    *
    * @var string
    */
-  protected $table = 'roles';
+  protected $table = 'softwares';
 
   /**
    * The attributes that are mass assignable.
@@ -18,19 +18,20 @@ class Role extends Model {
    */
   protected $fillable = [
     'name',
-    'class',
+    'make',
+    'model',
+    'notes',
     'created_by',
-    'updated_by',
-    'ping'
+    'updated_by'
   ];
 
   /**
-   * Define relationship with user model.
+   * Define relationship with logs model.
    *
-   * @return User
+   * @return Log
    */
-  public function users() {
-    return $this->hasMany('EAMES\Models\User');
+  public function logs() {
+    return $this->hasMany('EAMES\Models\Log');
   }
 
 }
