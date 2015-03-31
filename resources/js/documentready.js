@@ -101,7 +101,7 @@ $(document).ready(function(){
   });
 
   // chosen select forms
-  $('.chosen-select').chosen();
+  $('.chosen-select').chosen({width: '100%'});
 
   // logs select forms
   $("#log_selector").chosen().change(function () {

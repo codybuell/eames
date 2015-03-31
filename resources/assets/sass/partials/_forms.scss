@@ -177,3 +177,32 @@ input[readonly] {
     background-color: white !important;
     cursor: text !important;
 }
+
+////////////
+// CHOSEN //
+////////////
+
+.chosen-container {
+    span {
+        padding: 0 7px;
+        font-size: $baseFontSize;
+        letter-spacing: 1px;
+        line-height: 49px;
+        color: $formInput;
+    }
+    div.chosen-search input {
+        height: 25px;
+    }
+}
+
+.chosen-container-single .chosen-single div {
+    right: 4px;
+    width: 16px;
+    b {
+        background-position: 0 14px;
+    }
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+    background-position: -18px 14px;
+}
