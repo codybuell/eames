@@ -102,7 +102,11 @@ $(document).ready(function(){
 
   // datetime pickers
   $('#datetimepicker').datetimepicker({
+    format: 'YYYY-MM-DD HH:mm:ss',
+    showTodayButton: true,
+    //format: 'YYYY-MM-DD HH:mm:ss Z',  // timezone, table and log model must support
     icons: {
+      today: "fa fa-angle-double-down",
       time: "fa fa-clock-o",
       date: "fa fa-calendar",
       up: "fa fa-arrow-up",

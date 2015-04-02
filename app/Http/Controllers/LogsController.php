@@ -119,6 +119,7 @@ class LogsController extends Controller {
    * @return Void
    */
   private function getRelated() {
+    // build arrays
     $this->related['hardwares']     = Hardware::get()->lists('name','id');
     $this->related['softwares']     = Software::get()->lists('name','id');
     $this->related['licenses']      = License::get()->lists('id','id');
@@ -127,6 +128,16 @@ class LogsController extends Controller {
     $this->related['tasks']         = Task::get()->lists('title','id');
     $this->related['issues']        = Issue::get()->lists('title','id');
     $this->related['events']        = Event::get()->lists('title','id');
+
+    // add placeholder to beginning of arrays
+    $this->related['hardwares']     = ['' => 'Select Hardware'] + $this->related['hardwares'];
+    $this->related['softwares']     = ['' => 'Select Software'] + $this->related['softwares'];
+    $this->related['licenses']      = ['' => 'Select License'] + $this->related['licenses'];
+    $this->related['installations'] = ['' => 'Select Installation'] + $this->related['installations'];
+    $this->related['projects']      = ['' => 'Select Project'] + $this->related['projects'];
+    $this->related['tasks']         = ['' => 'Select Task'] + $this->related['tasks'];
+    $this->related['issues']        = ['' => 'Select Issue'] + $this->related['issues'];
+    $this->related['events']        = ['' => 'Select Event'] + $this->related['events'];
   }
 
   ////////////////////////////////////////////////////////////////////////////////

@@ -33,7 +33,8 @@ class Log extends Model {
   public static $rules = [
     'title'    => 'required|max:50',
     'type'     => 'required',
-    'datetime' => 'required'
+    'datetime' => 'required|date_format:Y-m-d H:i:s'
+    //'datetime' => 'required|date_format:Y-m-d H:i:s O'  // timezone, table and js must support
   ];
 
   ////////////////////////////////////////////////////////////////////////////////
