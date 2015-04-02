@@ -13,16 +13,27 @@ class Log extends Model {
   // allowed for mass assignment
   protected $fillable = [
     'type',
+    'hardware_id',
+    'software_id',
+    'license_id',
+    'installation_id',
+    'maintenance_id',
+    'project_id',
+    'task_id',
+    'issue_id',
+    'event_id',
     'title',
-    'content',
-    'system'
+    'notes',
+    'datetime',
+    'created_by',
+    'updated_by'
   ];
 
   // field validation rules
   public static $rules = [
-    'title'   => 'required|max:50',
-    'system'  => 'max:50',
-    'content' => ''
+    'title'    => 'required|max:50',
+    'type'     => 'required',
+    'datetime' => 'required'
   ];
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -32,11 +43,15 @@ class Log extends Model {
   ////////////////////////////////////////////////////////////////////////////////
 
   public function user() {
-    return $this->belongsTo('User');
+    return $this->belongsTo('EAMES\Models\User');
   }
 
-  public function profile() {
-    return $this->hasOne('Profile', 'user_id', 'user_id');
+  public function creator() {
+    return $this->hasOne('EAMES\Models\Profile', 'user_id', 'created_by');
+  }
+
+  public function updator() {
+    return $this->hasOne('EAMES\Models\Profile', 'user_id', 'updated_by');
   }
 
   ////////////////////////////////////////////////////////////////////////////////

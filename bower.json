@@ -9,6 +9,7 @@
     "fullcalendar": "~2.3.1",
     "moment": "~2.9.0",
     "bootstrap-chosen": "~1.0.1",
-    "chosen": "~1.4.2"
+    "chosen": "~1.4.2",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14"
   }
 }

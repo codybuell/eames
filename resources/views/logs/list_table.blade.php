@@ -33,17 +33,17 @@
     <tbody>
     @foreach ($logs as $log)
         <tr>
-        <td class="cell-condensed">
+        <td class="condensed">
           {{ $log->id }}
         </td>
         <td>
-          {{ link_to("logs/{$log->id}", $log->title) }}
+          {!! link_to("logs/{$log->id}", $log->title) !!}
         </td>
         <td>
-          @if (!empty($log->profile->first_name) && !empty($log->profile->last_name))
+          @if (!empty($log->creator->first_name) && !empty($log->creator->last_name))
             {{ $log->profile->first_name.' '.$log->profile->last_name }}
           @else
-            {{ $log->user->username or '' }}
+            {{ $log->creator->username or '' }}
           @endif
         </td>
         <td>
@@ -52,18 +52,19 @@
         <td>
           {{ $log->type }}
         </td>
-        <td class="cell-condensed">
+        <td class="condensed">
           {{ $log->updated_at }}
         </td>
-        <td class="cell-condensed">
+        <td class="condensed">
           {{ $log->created_at }}
         </td>
-        <td class="cell-condensed">
-          <button class="icon_email text_button confirm" data-action="mailto:?subject={{ rawurlencode('Activity Log: '.$log->title) }}&body={{ rawurlencode($log->content) }}">Email</button>
-          <button class="icon_edit text_button confirm" data-action="{{ url("logs/{$log->id}/edit") }}">Edit</button>
-          {{ Form::open(array('route' => array('logs.destroy', $log->id),'method' => 'DELETE','class' => 'inline')) }}
-            {{ Form::button('Delete',array('class' => 'icon_trash_thin text_button confirm','type' => 'submit')) }}
-          {{ Form::close() }}
+        <td class="condensed">
+          <a href="mailto:?subject={{ rawurlencode('Activity Log: '.$log->title) }}&body={{ rawurlencode($log->content) }}">@include('partials.buttons.email')</a>
+          <a href="{{ url("logs/{$log->id}") }}">@include('partials.buttons.view')</a>
+          <a href="{{ url("logs/{$log->id}/edit") }}">@include('partials.buttons.edit')</a>
+          {!! Form::open(['route' => ['logs.destroy', $log->id],'method' => 'DELETE','class' => 'inline']) !!}
+            @include('partials.buttons.delete')
+          {!! Form::close() !!}
         </td>
       </tr>
     @endforeach

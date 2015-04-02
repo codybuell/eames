@@ -4,6 +4,15 @@ use EAMES\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use EAMES\Models\Log;
+use EAMES\Models\Hardware;
+use EAMES\Models\Software;
+use EAMES\Models\License;
+use EAMES\Models\Installation;
+use EAMES\Models\Maintenance;
+use EAMES\Models\Project;
+use EAMES\Models\Task;
+use EAMES\Models\Issue;
+use EAMES\Models\Event;
 use Markdown;
 
 class LogsController extends Controller {
@@ -22,6 +31,7 @@ class LogsController extends Controller {
   protected $log;
   protected $types;
   protected $assoc;
+  protected $related;
 
   /**
    * Class initialization.
@@ -55,20 +65,20 @@ class LogsController extends Controller {
       ''               => 'Select Log Type',
       'I&T Activity'   => 'I&T Activity',
       'Administration' => 'Administration',
+      'Maintenance'    => 'Maintenance',
     ];
 
     // define log associations
     $this->assoc = [
-      'log_placeholder'   => 'Select Association',
-      'log_hardware'     => 'hardware',
-      'log_software'     => 'software',
-      'log_license'      => 'license',
-      'log_installation' => 'installation',
-      'log_maintenance'  => 'maintenance',
-      'log_project'      => 'project',
-      'log_task'         => 'task',
-      'log_issue'        => 'issue',
-      'log_event'        => 'event',
+      'log_placeholder'  => 'Associations...',
+      'log_hardware'     => 'Hardware',
+      'log_software'     => 'Software',
+      'log_license'      => 'License',
+      'log_installation' => 'Installation',
+      'log_project'      => 'Project',
+      'log_task'         => 'Task',
+      'log_issue'        => 'Issue',
+      'log_event'        => 'Event',
     ];
 
   }
@@ -103,6 +113,22 @@ class LogsController extends Controller {
 
   }
 
+  /**
+   * Grab Related Records
+   *
+   * @return Void
+   */
+  private function getRelated() {
+    $this->related['hardwares']     = Hardware::get()->lists('name','id');
+    $this->related['softwares']     = Software::get()->lists('name','id');
+    $this->related['licenses']      = License::get()->lists('id','id');
+    $this->related['installations'] = Installation::get()->lists('id','id');
+    $this->related['projects']      = Project::get()->lists('title','id');
+    $this->related['tasks']         = Task::get()->lists('title','id');
+    $this->related['issues']        = Issue::get()->lists('title','id');
+    $this->related['events']        = Event::get()->lists('title','id');
+  }
+
   ////////////////////////////////////////////////////////////////////////////////
   //                                                                            //
   // CRUD                                                                       //
@@ -112,7 +138,7 @@ class LogsController extends Controller {
   public function index() {
 
     // gather all the log logs
-    $logs = $this->log->with('user','profile')->orderBy('created_at', 'desc')->paginate(50);
+    $logs = $this->log->with('user','creator')->orderBy('created_at', 'desc')->paginate(50);
 
     // return view with the data
     return view('logs.index', [
@@ -123,10 +149,14 @@ class LogsController extends Controller {
 
   public function create() {
 
+    // update related lists
+    $this->getRelated();
+
     // return creation view
     return view('logs.create', [
-      'types' => $this->types,
-      'assoc' => $this->assoc
+      'types'   => $this->types,
+      'assoc'   => $this->assoc,
+      'related' => $this->related
     ]);
 
   }
@@ -138,17 +168,17 @@ class LogsController extends Controller {
 
     // fill the log object with the input data and validate
     if (!$this->log->fill($input)->isValid()) {
-      return Redirect::back()->withInput()->withErrors($this->log->messages);
+      return redirect()->back()->withInput()->withErrors($this->log->messages);
     }
 
     // tag the log with the users id
-    $this->log->user_id = $auth->user()->id;
+    $this->log->created_by = $auth->user()->id;
 
     // save via push method as other tables are filled
     $this->log->push();
 
     // redirect to the log index
-    return Redirect::route('logs.index')->with('alert', 'log successfully created');
+    return redirect()->route('logs.index')->with('alert', 'log successfully created');
 
   }
 
@@ -198,7 +228,7 @@ class LogsController extends Controller {
     $this->log->push();
 
     // redirect to user index
-    return Redirect::route('logs.index')->with('alert', 'log record successfuly updated');
+    return redirect()->route('logs.index')->with('alert', 'log record successfuly updated');
 
   }
 
@@ -211,7 +241,7 @@ class LogsController extends Controller {
     $log->delete();
 
     // redirect back to previous page
-    return Redirect::back()->with('alert', 'record successfully deleted');
+    return redirect()->back()->with('alert', 'record successfully deleted');
 
   }
 

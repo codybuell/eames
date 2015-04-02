@@ -172,7 +172,7 @@ class UsersController extends Controller {
    */
   public function create() {
 
-    // gather roles for dropdown
+    // gather and managers roles for dropdown
     $roles = Role::get()->lists('name','id');
     $managers = User::get()->lists('username','id');
 

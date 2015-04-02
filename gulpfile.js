@@ -32,12 +32,14 @@ elixir(function(mix) {
       '../assets/bower/jquery/dist/jquery.js',
       '../assets/bower/d3/d3.js',
       '../assets/bower/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+      '../assets/bower/moment/moment.js',
     ],'public/assets/scripts/engines.js');
 
     // plugins
     mix.scripts([
       '../assets/bower/colorbrewer/colorbrewer.js',
       '../assets/bower/chosen/chosen.jquery.min.js',
+      '../assets/bower/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js',
     ],'public/assets/scripts/plugins.js');
 
     // scripts

@@ -24,23 +24,26 @@
   <div class="full_page_basic_form">
     {!! Form::open([ 'route' => 'logs.store' ]) !!}
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-4">
           {!! Form::text('title',null,['placeholder' => 'Title', 'class' => 'full']) !!}
         </div>
         <div class="col-md-2">
-          {!! Form::select('assoc',$assoc,null,['id' => 'log_selector', 'class' => 'full chosen-select']) !!}
+          {!! Form::text('datetime',null,['placeholder' => 'Date', 'id' => 'datetimepicker', 'class' => 'full']) !!}
         </div>
         <div class="col-md-2">
-          {!! Form::text('system',null,['placeholder' => '', 'id' => 'log_placeholder', 'class' => 'full dependent', 'disabled' => 'disabled']) !!}
-          {!! Form::text('system',null,['placeholder' => 'hardware', 'id' => 'log_hardware', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'software', 'id' => 'log_software', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'license', 'id' => 'log_license', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'installation', 'id' => 'log_installation', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'mainteneance', 'id' => 'log_maintenance', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'project', 'id' => 'log_project', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'task', 'id' => 'log_task', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'issue', 'id' => 'log_issue', 'class' => 'full dependent hidden']) !!}
-          {!! Form::text('system',null,['placeholder' => 'event', 'id' => 'log_event', 'class' => 'full dependent hidden']) !!}
+          {!! Form::select('assoc',$assoc,null,['id' => 'log_selector', 'class' => 'full chosen-select']) !!}
+          <!--{!! Form::select('title[]',$related,null,['id' => 'log_selector', 'class' => 'full chosen-select limited-select', 'multiple' => 'multiple']) !!}-->
+        </div>
+        <div class="col-md-2">
+          {!! Form::text('placeholder',null,['placeholder' => '', 'id' => 'log_placeholder', 'class' => 'full dependent', 'disabled' => 'disabled']) !!}
+          <div id="log_hardware" class="dependent hidden">{!! Form::select('hardware_id',$related['hardwares'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_software" class="dependent hidden">{!! Form::select('software_id',$related['softwares'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_license" class="dependent hidden">{!! Form::select('license_id',$related['licenses'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_installation" class="dependent hidden">{!! Form::select('installation_id',$related['installations'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_project" class="dependent hidden">{!! Form::select('project_id',$related['projects'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_task" class="dependent hidden">{!! Form::select('task_id',$related['tasks'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_issue" class="dependent hidden">{!! Form::select('issue_id',$related['issues'],null,['class' => 'full chosen-select']) !!}</div>
+          <div id="log_event" class="dependent hidden">{!! Form::select('event_id',$related['events'],null,['class' => 'full chosen-select']) !!}</div>
         </div>
         <div class="col-md-2">
           {!! Form::select('type',$types,null,['class' => 'full chosen-select']) !!}

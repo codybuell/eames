@@ -263,15 +263,34 @@ $(document).ready(function(){
     $(this).parent().hide();
   });
 
-  // chosen select forms
-  $('.chosen-select').chosen({width: '100%'});
+  // datetime pickers
+  $('#datetimepicker').datetimepicker({
+    icons: {
+      time: "fa fa-clock-o",
+      date: "fa fa-calendar",
+      up: "fa fa-arrow-up",
+      down: "fa fa-arrow-down",
+      previous: "fa fa-arrow-left",
+      next: "fa fa-arrow-right",
+    }
+  });
 
-  // logs select forms
+  // chosen select forms
+  $('.chosen-select').chosen({
+    width: '100%'
+  });
+
+  // logs select dependency inputs
   $("#log_selector").chosen().change(function () {
     var field = $(this).val();
     $('.dependent').addClass('hidden');
     $('#'+field).removeClass('hidden');
   }).trigger('change');
+
+  // allow only one per group multiselect
+  $('.limited-select group-result group-option').click(function() {
+    $(this).siblings().prop('selected', false);
+  });
 
   //////////////////////////
   // WINDOW SCROLL EVENTS //
